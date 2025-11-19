@@ -12,10 +12,10 @@ def load_data(nrows):
             data=pd.read_csv(DATA_URL,nrows=nrows)
             lowercase=lambda x: str(x).lower()
             data.rename(lowercase, axis="columns", inplace=True)
-            data[DATECOLUMN]=pd.to_datatime(data.[DATECOLUMN])
+            data[DATECOLUMN]=pd.todatatime(data.[DATECOLUMN])
             return data
 
-data_load_state=st.text("Loading Data...")
-data_load_data(10000)
-data_load_state=st.text("Loading Data...Done!")
+dataloadstate=st.text("Loading Data...")
+dataloaddata(10000)
+dataloadstate=st.text("Loading Data...Done!")
 ___
