@@ -4,18 +4,17 @@ import numpy as np
 
 st.title("Uber Pickups in NYC")
 
-DATAURL = ('https://s3-us-west-2.amazonaws.com/'
+DATA_URL = ('https://s3-us-west-2.amazonaws.com/'
          'streamlit-demo-data/uber-raw-data-sep14.csv.gz')
-DATECOLUMN = "data/time"
+DATE_COLUMN = "data/time"
 
 def load_data(nrows):
             data=pd.read_csv(DATA_URL,nrows=nrows)
             lowercase=lambda x: str(x).lower()
             data.rename(lowercase, axis="columns", inplace=True)
-            data[DATECOLUMN]=pd.todatatime(data.[DATECOLUMN])
+            data[DATE_COLUMN]=pd.to_datatime(data.[DATE_COLUMN])
             return data
 
-dataloadstate=st.text("Loading Data...")
-dataloaddata(10000)
-dataloadstate=st.text("Loading Data...Done!")
-___
+data_load_state=st.text("Loading Data...")
+data_load_data(10000)
+data_load_state=st.text("Loading Data...Done!")
